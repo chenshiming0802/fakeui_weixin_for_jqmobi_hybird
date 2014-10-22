@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!--HTML5 doctype-->
+<html>
+
+<head>
+
+    <title>Sprcore Framework</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" type="text/css" href="lib/appframework-2.1.0/main.css"  />
+    <script type="text/javascript" charset="utf-8" src="lib/appframework-2.1.0/appframework.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/appframework-2.1.0/af.actionsheet.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/appframework-2.1.0/af.css3animate.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/appframework-2.1.0/af.scroller.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/appframework-2.1.0/af.touchEvents.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/appframework-2.1.0/af.touchLayer.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/appframework-2.1.0/appframework.ui.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/appframework-2.1.0/slide.js"></script>
+
+    <script type="text/javascript">
+            
+            $(document).ready(function(){
+                $.ui.launch();
+                
+                $.ui.setTitle("new title");
+                $.ui.removeFooterMenu();
+                $.ui.toggleHeaderMenu(false);
+                $.ui.toggleNavMenu(false);
+                $.ui.disableTabBar();
+                alert('hi');
+                var ii = 0;
+                $("#bt1").bind("tap", function() {
+                    if(ii==0){
+                      ii = 1;
+                      $("#taptest2").css("background-color","blue");
+                    }else{
+                        ii = 0;
+                      $("#taptest2").css("background-color","white");
+                    }
+                    $.ui.toggleHeaderMenu(false);
+                    $.ui.toggleNavMenu(false);
+                });
+
+                $("#bt2").bind("tap", function() {
+                    alert('hi');
+ 
+                    $.ui.loadContent("#transition1",false,false,"slide");
+                    $.ui.toggleHeaderMenu(false);
+                    $.ui.toggleNavMenu(false);
+                });
+
+ 
+            });
+            
+                          
+        </script>
+
+</head>
+
+</head>
+    <style type="text/css">
+a{
+    font-size: 50px;
+    color: red;
+}
+#defaultHeader{
+    display:none;
+    background-color: green;
+}
+</style>
+<body  id="afui">
+    <div id="content">
+        <div class="panel"  id="main1">
+            <a href="#transition1" data-transition="slide" >Slide</a>
+            <a href="#touchevents" data-transition="slide" >touchevents</a>
+            <input type='button' value='Tap Test!' id="bt1"/>
+            <BR>
+            <input type='button' value='Slide Test!' id="bt2"/>
+            <br>
+            <a id='taptest2' >Tap</a>
+        </div>
+    </div>
+
+    <div  id="transition1" class="panel"   >
+        <div style="text-align:center;width:100%;color:white;font-size:40px">App Framework Slide Transition</div>
+        <a href="#main1" data-transition="slide" >main1</a>
+    </div>
+
+    <div class="panel"  id="touchevents">
+        <script>
+                $(document).ready(function(){
+                    $("#taptest").bind("tap",function(){
+                        alert("I was tapped");
+                    })
+                    $("#singletaptest").bind("singleTap",function(){
+                        alert("I was single tapped");
+                    })
+                    $("#longtaptest").bind("longTap",function(){
+                        alert("I was a long tap");
+                    })
+                    $("#doubletaptest").bind("doubleTap",function(){
+                        alert("I was a double tap");
+                    })
+                    $("#swipetest").bind("swipe",function(){
+                        alert("I was a swiped");
+                    })
+                });
+                </script>
+        <h2>Touch Events</h2>
+
+        <ul class="list">
+            <li>
+                <a id='taptest' >Tap Test</a>
+            </li>
+            <li>
+                <a id='longtaptest' >Long Tap Test</a>
+            </li>
+            <li>
+                <a id='singletaptest' >Single Tap Test</a>
+            </li>
+            <li>
+                <a id='doubletaptest' >Double Tap Test</a>
+            </li>
+            <li>
+                <a id='swipetest' >Swipe Test</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
